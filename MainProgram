@@ -1,0 +1,52 @@
+/* CountingChange
+   Jenesis Fabia
+   CIS084  Java Programming
+   Inputs: coins and their values
+   Output: Total cost of those coins
+*/
+
+import java.util.Scanner;
+
+public class CountingChange {
+
+    // Define constants
+    public static final double QUARTER = 0.25; // 25 cents
+    public static final double DIME = 0.10; // 10 cents
+    public static final double NICKEL = 0.05; // 5 cents
+    public static final double PENNY = 0.01; // 1 cent
+    
+    //stdin for keyboard
+    static Scanner stdin;
+
+    public static void main(String[] args) {
+        // Declare variables
+        int amount_of_quarters, amount_of_dimes;
+        int amount_of_nickels, amount_of_pennies;
+        double dollars;
+        
+        // create stdin object to use in keyboard
+        Scanner stdin = new Scanner (System.in);
+
+        // Inputs: Enter the change on the terminal
+        System.out.print("Enter the number of quarters: "); // All this prompts messages
+        amount_of_quarters = stdin.nextInt();
+        System.out.print("Enter the number of dimes: ");
+        amount_of_dimes = stdin.nextInt();
+        System.out.print("Enter the number of nickels: ");
+        amount_of_nickels = stdin.nextInt();
+        System.out.print("Enter the number of pennies: ");
+        amount_of_pennies = stdin.nextInt();
+
+        // Process: Computes coins to show values in dollars
+        // and cents
+        dollars = (amount_of_quarters * QUARTER) + (amount_of_dimes * DIME)
+                + (amount_of_nickels + NICKEL) + (amount_of_pennies * PENNY);
+
+        // Output: display total change from value of coins
+        System.out.printf("\n");
+        System.out.printf("Your total amount of dollars is $%.2f\n", dollars);
+
+        // Close stdin because this used scanner
+        stdin.close();
+    }
+}
